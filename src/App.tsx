@@ -11,7 +11,7 @@ export default function App() {
       open={true}
       actionLabel="Entendido"
       onActionClick={() => console.log("onActionClick> Entendido")}
-      pointerPosition="top"
+      pointerPosition="bottom"
     >
       <SomeComponent />
     </Tour>

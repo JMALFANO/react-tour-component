@@ -9,13 +9,20 @@ export default mergeConfig(
       setupFiles: "./tests/setup",
       environment: "jsdom",
       coverage: {
+        include: ["src/**/*.ts", "src/**/*.tsx"],
+        exclude: [
+          "src/**/index.tsx",
+          "src/**/*.types.ts",
+          "src/**/*.stories.tsx",
+          "src/**/*.test.tsx",
+        ],
         thresholds: {
-          lines: 10,
-          functions: 10,
-          branches: 10,
-          statements: 10,
+          statements: 90,
+          branches: 90,
+          functions: 90,
+          lines: 90,
         },
       },
     },
-  }),
+  })
 );

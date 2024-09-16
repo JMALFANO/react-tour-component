@@ -4,14 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "check:types": "tsc --noEmit",
     "prepare": "husky install",
     "test": "vitest run --coverage",
     "test:watch": "vitest --watch",
     "preview": "vite preview",
-    "start": "vite",
     "dev": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

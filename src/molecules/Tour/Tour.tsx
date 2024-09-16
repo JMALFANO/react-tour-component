@@ -22,8 +22,6 @@ export const Tour: React.FC<TourProps> = (props: TourProps) => {
         return "right-full top-1/2 transform -translate-y-1/2 -mr-4";
       case "right":
         return "left-full top-1/2 transform -translate-y-1/2 ml-4";
-      default:
-        return "";
     }
   };
 
@@ -31,8 +29,9 @@ export const Tour: React.FC<TourProps> = (props: TourProps) => {
     <>
       {openTour ? (
         <div
-          className={`${hasOverlay ? "bg-black bg-opacity-75 fixed inset-0" : ""
-            } flex items-center justify-center`}
+          className={`${
+            hasOverlay ? "bg-black bg-opacity-75 fixed inset-0" : ""
+          } flex items-center justify-center`}
         >
           <div className="relative">
             {children}

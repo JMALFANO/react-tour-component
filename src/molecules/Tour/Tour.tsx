@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
-import { TourProps } from "./Tour.types";
-import { useTour } from "./useTour";
+import type TourProps from "./Tour.types";
+import useTour from "./useTour";
 
-export const Tour: React.FC<TourProps> = (props: TourProps) => {
+const Tour: React.FC<TourProps> = (props: TourProps) => {
   const {
     hasOverlay = false,
     message,
@@ -58,3 +59,5 @@ export const Tour: React.FC<TourProps> = (props: TourProps) => {
     </>
   );
 };
+
+export default Tour;

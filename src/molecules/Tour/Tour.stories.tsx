@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Tour } from "./";
-import { SomeComponent } from "../SomeComponent";
+import Tour from "./Tour";
+import { SomeComponent } from "./../SomeComponent/SomeComponent";
 
 const meta: Meta<typeof Tour> = {
   title: "molecules/Tour",

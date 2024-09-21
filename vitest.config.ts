@@ -6,11 +6,12 @@ export default mergeConfig(
   defineConfig({
     test: {
       globals: true,
-      setupFiles: "./tests/setup",
+      setupFiles: "./tests/helpers",
       environment: "jsdom",
       coverage: {
         include: ["src/**/*.ts", "src/**/*.tsx"],
         exclude: [
+          "src/**/index.ts",
           "src/**/index.tsx",
           "src/**/*.types.ts",
           "src/**/*.stories.tsx",

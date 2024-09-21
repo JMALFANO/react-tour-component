@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 
-import { TourProps } from "./Tour.types";
+import type TourProps from "./Tour.types";
 
 interface UseTourProps {
   openTour: boolean;
   handleActionClick: () => void;
 }
 
-export const useTour = (props: TourProps): UseTourProps => {
+const useTour = (props: TourProps): UseTourProps => {
   const { open, onActionClick } = props;
 
   useEffect(() => {
@@ -26,3 +26,5 @@ export const useTour = (props: TourProps): UseTourProps => {
     handleActionClick,
   };
 };
+
+export default useTour;

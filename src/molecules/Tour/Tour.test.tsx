@@ -1,7 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import "@testing-library/jest-dom"; // Importa jest-dom para las aserciones adicionales
-import { Tour } from "./Tour";
+
+import Tour from "./Tour";
 
 describe("Tour", () => {
   // Objetivo: Testear que el componente se renderice correctamente

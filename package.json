@@ -7,7 +7,7 @@
   "exports": {
     ".": {
       "import": "./dist/react-onboarding-component.js",
-      "require": "./dist/react-onboarding-component.umd.cjs"
+      "export": "./dist/react-onboarding-component.umd.cjs"
     }
   },
   "publishConfig": {

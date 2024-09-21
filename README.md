@@ -27,13 +27,13 @@ import { Tour } from "react-onboarding-component";
 ```
 
 | Properties              | Description                                   |
-| ----------------------- | --------------------------------------------- | -------- | ------ | ------- |
+| ----------------------- | --------------------------------------------- |
 | `hasOverlay(bool)`      | Cover the screen highlighting the component.  |
 | `message(str)`          | Message to describe the use of the component. |
 | `open(bool)`            | Initial state of the component.               |
 | `actionLabel(str)`      | Text of the button to close the component.    |
 | `onActionClick(fn)`     | Event propagated when component is closed.    |
-| `pointerPosition(enum)` | Appears: "top"                                | "bottom" | "left" | "right" |
+| `pointerPosition(enum)` | Appears: "top" - "bottom" - "left" - "right"  |
 
 ---
 

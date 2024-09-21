@@ -70,7 +70,7 @@ describe("Tour", () => {
       />
     );
 
-    const overlay = container.querySelector(".bg-black.bg-opacity-75");
+    const overlay = container.querySelector(".bg-neutral-700.bg-opacity-75");
     expect(overlay).toBeTruthy();
   });
 
@@ -87,7 +87,7 @@ describe("Tour", () => {
       />
     );
 
-    const overlay = container.querySelector(".bg-black.bg-opacity-75");
+    const overlay = container.querySelector(".bg-neutral-700.bg-opacity-75");
     expect(overlay).toBeNull();
   });
 

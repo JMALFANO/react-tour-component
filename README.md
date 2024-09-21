@@ -1,7 +1,10 @@
 # React Onboarding Component 📚
 
+Demo: https://react-tour-component.vercel.app/
+
 This component allows you to wrap another component or JSX element to explain its use
-This library needs react and tailwindcss to work
+
+¡¡This library needs React and TailwindCSS to work!!
 
 ## Installation 📦
 

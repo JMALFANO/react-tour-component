@@ -31,7 +31,7 @@ const Tour: React.FC<TourProps> = (props: TourProps) => {
       {openTour ? (
         <div
           className={`${
-            hasOverlay ? "bg-black bg-opacity-75 fixed inset-0" : ""
+            hasOverlay ? "bg-neutral-700 bg-opacity-75 fixed inset-0" : ""
           } flex items-center justify-center`}
         >
           <div className="relative">
@@ -44,7 +44,7 @@ const Tour: React.FC<TourProps> = (props: TourProps) => {
               </span>
               <div className="flex justify-end p-4">
                 <button
-                  className="border rounded-md bg-black text-white p-2"
+                  className="border rounded-md bg-neutral-700 text-white p-2"
                   onClick={handleActionClick}
                 >
                   {actionLabel}

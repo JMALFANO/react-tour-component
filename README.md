@@ -4,7 +4,7 @@ Demo: https://react-tour-component.vercel.app/
 
 This component allows you to wrap another component or JSX element to explain its use
 
-¡¡This library needs React and TailwindCSS to work!!
+¡¡This library needs React to work!!
 
 ## Installation 📦
 
@@ -16,6 +16,7 @@ npm install react-onboarding-component
 
 ```jsx
 import { Tour } from "react-onboarding-component";
+import "react-onboarding-component/dist/src/index.css";
 
 <Tour
   hasOverlay={true}

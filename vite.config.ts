@@ -9,18 +9,19 @@ export default defineConfig({
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "react-onboarding-component",
     },
+    cssCodeSplit: true,
     sourcemap: true,
     target: "es6",
     minify: false,
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "react-dom", "tailwindcss"],
+      external: ["react", "react/jsx-runtime", "react-dom"],
       output: {
         globals: {
           react: "React",
           "react/jsx-runtime": "react/jsx-runtime",
           "react-dom": "ReactDOM",
-          tailwindcss: "tailwindcss",
         },
+        assetFileNames: "src/index.css",
       },
     },
   },

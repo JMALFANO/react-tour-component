@@ -193,7 +193,7 @@ describe("Tour", () => {
       />
     );
 
-    expect(container.firstChild).toBeNull();
+    expect(container.firstChild).toHaveClass("relative inline-block");
   });
 
   // Objetivo: verificar que el componente se renderiza cuando open es true

@@ -16,11 +16,11 @@ const Tour: React.FC<TourProps> = (props: TourProps) => {
   const getPointerPositionClasses = () => {
     switch (pointerPosition) {
       case "top":
-        return "bottom-full left-1/2 transform -translate-x-1/2 -mb-4";
+        return "bottom-full left-1/2 transform -translate-x-1/2 mb-4";
       case "bottom":
         return "top-full left-1/2 transform -translate-x-1/2 mt-4";
       case "left":
-        return "right-full top-1/2 transform -translate-y-1/2 -mr-4";
+        return "right-full top-1/2 transform -translate-y-1/2 mr-4";
       case "right":
         return "left-full top-1/2 transform -translate-y-1/2 ml-4";
     }
@@ -28,16 +28,15 @@ const Tour: React.FC<TourProps> = (props: TourProps) => {
 
   return (
     <>
-      {openTour ? (
-        <div
-          className={`${
-            hasOverlay ? "bg-neutral-700 bg-opacity-75 fixed inset-0" : ""
-          } flex items-center justify-center`}
-        >
-          <div className="relative">
-            {children}
+      <div className="relative inline-block">
+        {children}
+        {openTour && (
+          <>
+            {hasOverlay && (
+              <div className="fixed inset-0 bg-neutral-700 bg-opacity-75 z-40"></div>
+            )}
             <div
-              className={`bg-neutral-200 rounded-lg border-2 w-64 absolute ${getPointerPositionClasses()}`}
+              className={`bg-neutral-200 rounded-lg border-2 w-64 absolute z-50 ${getPointerPositionClasses()}`}
             >
               <span className="font-semibold flex items-center p-4">
                 {message}
@@ -51,11 +50,9 @@ const Tour: React.FC<TourProps> = (props: TourProps) => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        children
-      )}
+          </>
+        )}
+      </div>
     </>
   );
 };

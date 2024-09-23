@@ -1,50 +1,43 @@
-# React + TypeScript + Vite
+# React Onboarding Component 📚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Demo: https://react-tour-component.vercel.app/
 
-Currently, two official plugins are available:
+This component allows you to wrap another component or JSX element to explain its use
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+¡¡This library needs React to work!!
 
-## Expanding the ESLint configuration
+## Installation 📦
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```CMD
+npm install react-onboarding-component
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Use 🎢
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```jsx
+import { Tour } from "react-onboarding-component";
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+<Tour
+  hasOverlay={true}
+  message="¡Bienvenido! Esta es una introducción de tour, para continuar presione el botón Entendido."
+  open={true}
+  actionLabel="Entendido"
+  onActionClick={() => console.log("onActionClick> Entendido")}
+  pointerPosition="bottom"
+>
+  <SomeComponent />
+</Tour>;
 ```
+
+| Properties              | Description                                   |
+| ----------------------- | --------------------------------------------- |
+| `hasOverlay(bool)`      | Cover the screen highlighting the component.  |
+| `message(str)`          | Message to describe the use of the component. |
+| `open(bool)`            | Initial state of the component.               |
+| `actionLabel(str)`      | Text of the button to close the component.    |
+| `onActionClick(fn)`     | Event propagated when component is closed.    |
+| `pointerPosition(enum)` | Appears: "top" - "bottom" - "left" - "right"  |
+
+---
+
+Thanks for using this library! 🚀

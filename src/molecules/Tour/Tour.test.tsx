@@ -1,7 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import "@testing-library/jest-dom"; // Importa jest-dom para las aserciones adicionales
-import { Tour } from "./Tour";
+
+import Tour from "./Tour";
 
 describe("Tour", () => {
   // Objetivo: Testear que el componente se renderice correctamente
@@ -12,9 +13,9 @@ describe("Tour", () => {
         message="¡Bienvenido! Esta es una introducción de tour, para continuar presione el botón Entendido."
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
     expect(baseElement).toBeTruthy();
@@ -28,13 +29,13 @@ describe("Tour", () => {
         message="¡Bienvenido! Esta es una introducción de tour."
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
     const messageElement = screen.getByText(
-      "¡Bienvenido! Esta es una introducción de tour.",
+      "¡Bienvenido! Esta es una introducción de tour."
     );
     expect(messageElement).toBeInTheDocument();
   });
@@ -47,9 +48,9 @@ describe("Tour", () => {
         message="¡Bienvenido! Esta es una introducción de tour."
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
     const actionButton = screen.getByText("Entendido");
@@ -64,12 +65,12 @@ describe("Tour", () => {
         message="¡Bienvenido!"
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
-    const overlay = container.querySelector(".bg-black.bg-opacity-75");
+    const overlay = container.querySelector(".bg-neutral-700.bg-opacity-75");
     expect(overlay).toBeTruthy();
   });
 
@@ -81,12 +82,12 @@ describe("Tour", () => {
         message="¡Bienvenido!"
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
-    const overlay = container.querySelector(".bg-black.bg-opacity-75");
+    const overlay = container.querySelector(".bg-neutral-700.bg-opacity-75");
     expect(overlay).toBeNull();
   });
 
@@ -102,7 +103,7 @@ describe("Tour", () => {
         actionLabel="Entendido"
         onActionClick={mockActionClick}
         pointerPosition="bottom"
-      />,
+      />
     );
 
     const actionButton = screen.getByText("Entendido");
@@ -119,13 +120,47 @@ describe("Tour", () => {
         message="¡Bienvenido!"
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
     const tooltip = container.querySelector(".absolute");
     expect(tooltip).toHaveClass("top-full left-1/2");
+  });
+
+  // Objetivo: verificar que el pointerPosition cambia las clases adecuadamente para "left"
+  it("should apply correct classes for pointerPosition 'left'", () => {
+    const { container } = render(
+      <Tour
+        hasOverlay={false}
+        message="¡Bienvenido!"
+        open={true}
+        actionLabel="Entendido"
+        onActionClick={() => {}}
+        pointerPosition="left"
+      />
+    );
+
+    const tooltip = container.querySelector(".absolute");
+    expect(tooltip).toHaveClass("right-full top-1/2");
+  });
+
+  // Objetivo: verificar que el pointerPosition cambia las clases adecuadamente para "right"
+  it("should apply correct classes for pointerPosition 'right'", () => {
+    const { container } = render(
+      <Tour
+        hasOverlay={false}
+        message="¡Bienvenido!"
+        open={true}
+        actionLabel="Entendido"
+        onActionClick={() => {}}
+        pointerPosition="right"
+      />
+    );
+
+    const tooltip = container.querySelector(".absolute");
+    expect(tooltip).toHaveClass("left-full top-1/2");
   });
 
   // Objetivo: verificar que el pointerPosition cambia las clases adecuadamente para "top"
@@ -136,9 +171,9 @@ describe("Tour", () => {
         message="¡Bienvenido!"
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="top"
-      />,
+      />
     );
 
     const tooltip = container.querySelector(".absolute");
@@ -153,12 +188,12 @@ describe("Tour", () => {
         message="¡Bienvenido!"
         open={false}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
-    expect(container.firstChild).toBeNull();
+    expect(container.firstChild).toHaveClass("relative inline-block");
   });
 
   // Objetivo: verificar que el componente se renderiza cuando open es true
@@ -169,9 +204,9 @@ describe("Tour", () => {
         message="¡Bienvenido!"
         open={true}
         actionLabel="Entendido"
-        onActionClick={() => { }}
+        onActionClick={() => {}}
         pointerPosition="bottom"
-      />,
+      />
     );
 
     expect(container.firstChild).not.toBeNull();

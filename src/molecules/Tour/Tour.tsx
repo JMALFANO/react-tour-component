@@ -1,8 +1,8 @@
 import React from "react";
-import { TourProps } from "./Tour.types";
-import { useTour } from "./useTour";
+import type TourProps from "./Tour.types";
+import useTour from "./useTour";
 
-export const Tour: React.FC<TourProps> = (props: TourProps) => {
+const Tour: React.FC<TourProps> = (props: TourProps) => {
   const {
     hasOverlay = false,
     message,
@@ -15,47 +15,45 @@ export const Tour: React.FC<TourProps> = (props: TourProps) => {
   const getPointerPositionClasses = () => {
     switch (pointerPosition) {
       case "top":
-        return "bottom-full left-1/2 transform -translate-x-1/2 -mb-4";
+        return "bottom-full left-1/2 transform -translate-x-1/2 mb-4";
       case "bottom":
         return "top-full left-1/2 transform -translate-x-1/2 mt-4";
       case "left":
-        return "right-full top-1/2 transform -translate-y-1/2 -mr-4";
+        return "right-full top-1/2 transform -translate-y-1/2 mr-4";
       case "right":
         return "left-full top-1/2 transform -translate-y-1/2 ml-4";
-      default:
-        return "";
     }
   };
 
   return (
     <>
-      {openTour ? (
-        <div
-          className={`${hasOverlay ? "bg-black bg-opacity-75 fixed inset-0" : ""
-            } flex items-center justify-center`}
-        >
-          <div className="relative">
-            {children}
+      <div className="relative inline-block">
+        {children}
+        {openTour && (
+          <>
+            {hasOverlay && (
+              <div className="fixed inset-0 bg-neutral-700 bg-opacity-75 z-40"></div>
+            )}
             <div
-              className={`bg-neutral-200 rounded-lg border-2 w-64 absolute ${getPointerPositionClasses()}`}
+              className={`bg-neutral-200 rounded-lg border-2 w-64 absolute z-50 ${getPointerPositionClasses()}`}
             >
               <span className="font-semibold flex items-center p-4">
                 {message}
               </span>
               <div className="flex justify-end p-4">
                 <button
-                  className="border rounded-md bg-black text-white p-2"
+                  className="border rounded-md bg-neutral-700 text-white p-2"
                   onClick={handleActionClick}
                 >
                   {actionLabel}
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        children
-      )}
+          </>
+        )}
+      </div>
     </>
   );
 };
+
+export default Tour;

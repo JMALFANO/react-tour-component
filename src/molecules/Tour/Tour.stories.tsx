@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Tour } from "./";
-import { SomeComponent } from "../SomeComponent";
+import Tour from "./Tour";
+import { SomeComponent } from "./../SomeComponent/SomeComponent";
 
 const meta: Meta<typeof Tour> = {
   title: "molecules/Tour",
   component: Tour,
   parameters: {
-    layout: "fullscreen",
+    layout: "centered",
   },
   args: {
     onActionClick: fn(),
@@ -25,7 +25,7 @@ export const Default: Story = {
       "¡Bienvenido! Esta es una introducción de tour, para continuar presione el botón Entendido.",
     open: true,
     actionLabel: "Entendido",
-    pointerPosition: "top",
+    pointerPosition: "bottom",
     children: <SomeComponent />,
   },
 };

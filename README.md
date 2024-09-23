@@ -16,7 +16,6 @@ npm install react-onboarding-component
 
 ```jsx
 import { Tour } from "react-onboarding-component";
-import "react-onboarding-component/dist/src/index.css";
 
 <Tour
   hasOverlay={true}
